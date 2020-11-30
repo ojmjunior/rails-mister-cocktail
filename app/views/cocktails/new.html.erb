@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>PAGE TO CREATE A COCKTAIL</h1>
+  
+  <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.input :name %>
+    <div class="d-flex justify-content-between">
+      <%= f.submit 'Save', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
