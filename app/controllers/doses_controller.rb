@@ -11,12 +11,13 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@cocktail), notice: 'dose was successfully created.'
     else
-      new
+      render 'new'
     end
   end
 
   def destroy
     @dose = Dose.find(params[:id])
+    @dose.destroy
     redirect_to cocktails_path
   end
 
