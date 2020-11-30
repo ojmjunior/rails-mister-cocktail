@@ -1,14 +1,10 @@
 <div class="container">
   <h1>Name: <%=@cocktail.name%></h1>
   <p>Ingredients</p>
-  <ul>
-    <% @cocktail.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
-    <% end %>
-  </ul>
+
   <ul>
     <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %> - 
+    <li><%= dose.description %> - <%= dose.ingredient.name %>
     <%= link_to "Remove",
                   doses_delete_path(dose.id),
                   method: :delete,

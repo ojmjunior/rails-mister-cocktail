@@ -5,6 +5,7 @@
     <%= f.input :name %>
     <div class="d-flex justify-content-between">
       <%= f.submit 'Save', class: "btn btn-primary" %>
+      <%= link_to('Back to the list', cocktails_path, class: "btn btn-outline-secondary") %>
     </div>
   <% end %>
 </div>
