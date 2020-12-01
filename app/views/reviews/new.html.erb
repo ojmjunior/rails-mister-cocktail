@@ -11,7 +11,7 @@
     <div class="row mb-3">
       <div class="col-12">
         <div class="d-flex justify-content-center align-items-center" style="height: 420px; background-size: cover; background-image: url('<%= cl_image_path @cocktail.photo.key, height: 420, width: 1080, crop: :fill %>')">
-          <h1 style="font-size: 80px;">Danos tu opinion</h1>
+          <h1 style="font-size: 80px; color: white;">Danos tu opinion</h1>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
         <%= f.input :content, label: "Descripción" %>
         <%= f.input :rating, collection: 1..5 %>
         <div class="d-flex justify-content-between">
-          <%= f.submit 'Ahorrar', class: "btn btn-primary" %>
+          <%= f.submit 'Ahorrar', class: "btn btn-success" %>
           <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
         </div>
       <% end %>

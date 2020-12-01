@@ -7,21 +7,22 @@
 </nav>
 
 <div class="container">
-<div class="row mb-3" style="opacity: 40%; height: 420px; background-image: url('<%= image_path "main-avatar.jpg", height: 420, width: 400, crop: :fill %>')">
-  <div class="col-12">
-    <h1 class="d-flex justify-content-center" style="font-size: 80px;">Añadir un refresco</h1>
-  </div>
-</div>
-
-
-<div>  
-  <%= simple_form_for(@cocktail) do |f| %>
-    <%= f.input :name, label: "Nombre del refresco" %>
-    <%= f.input :description, label: "Descripción" %>
-    <%= f.input :photo, as: :file %>
-    <div class="d-flex justify-content-between">
-      <%= f.submit 'Ahorrar', class: "btn btn-primary" %>
-      <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="d-flex justify-content-center align-items-center" style="opacity: 40%; height: 420px; background-image: url('<%= image_path "main-avatar.jpg", height: 420, width: 400, crop: :fill %>')">
+        <h1 style="font-size: 80px;">Añadir un refresco</h1>
+      </div>
     </div>
-  <% end %>
+  </div>
+  <div>  
+    <%= simple_form_for(@cocktail) do |f| %>
+      <%= f.input :name, label: "Nombre del refresco" %>
+      <%= f.input :description, label: "Descripción" %>
+      <%= f.input :photo, as: :file %>
+      <div class="d-flex justify-content-between">
+        <%= f.submit 'Ahorrar', class: "btn btn-success" %>
+        <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
+      </div>
+    <% end %>
+  </div>
 </div>
