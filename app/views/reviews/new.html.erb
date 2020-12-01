@@ -11,7 +11,7 @@
     <div class="row mb-3">
       <div class="col-12">
         <div class="d-flex justify-content-center align-items-center" style="height: 420px; background-size: cover; background-image: url('<%= cl_image_path @cocktail.photo.key, height: 420, width: 1080, crop: :fill %>')">
-          <h1 style="font-size: 80px;"><%= @cocktail.name %></h1>
+          <h1 style="font-size: 80px;">Danos tu opinion</h1>
         </div>
       </div>
     </div>
@@ -26,14 +26,15 @@
   <% end %>
   <div class="row mb-3">
     <div class="col-12">
-      <%= simple_form_for(@dose, as: :dose, method: :post, url: cocktail_doses_path) do |f| %>
-        <%= f.input :description, label: "Descripción" %>
-        <%= f.association :ingredient, label: "Ingrediente" %>
-        <%= f.button :submit, class: "btn btn-success" %>
-        <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
+      <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :content, label: "Descripción" %>
+        <%= f.input :rating, collection: 1..5 %>
+        <div class="d-flex justify-content-between">
+          <%= f.submit 'Ahorrar', class: "btn btn-primary" %>
+          <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
-
 

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="left-navbar">
     <%= image_tag "main-avatar.jpg", class: "avatar-large" %>
-    <span class = "navbar-brand font-weight-bold">TIENDA DEL CHAVO</span>
   </div>
+  <span class = "navbar-brand font-weight-bold">TIENDA DEL CHAVO</span>
   <div class="right-navbar">
     <%= link_to('Añadir un refresco', new_cocktail_path, class: "btn btn-outline-info") %>
     <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
@@ -12,17 +12,17 @@
 
 <section>
   <% if @cocktail.photo.attached?%>
-    <section class="background-image" style="height: 420px; background-image: url('<%= cl_image_path @cocktail.photo.key, height: 420, width: 1080, crop: :fill %>')">
+    <div class="background-image" style="height: 420px; background-image: url('<%= cl_image_path @cocktail.photo.key, height: 420, width: 1080, crop: :fill %>')">
       <div class="card-category img-fluid">
         <h1 class="text-success"style="font-size: 80px;"><%=@cocktail.name.capitalize%></h1>
       </div>
-    </section>
+    </div>
   <% else %>
-    <section class="background-image" style="opacity: 40%; height: 420px; background-image: url('<%= image_path "main-avatar.jpg", height: 420, width: 1080, crop: :fill %>')">
+    <div class="background-image" style="opacity: 40%; height: 420px; background-image: url('<%= image_path "main-avatar.jpg", height: 420, width: 1080, crop: :fill %>')">
       <div class="card-category img-fluid">
         <h1 class="text-success"style="font-size: 80px;"><%=@cocktail.name.capitalize%></h1>
       </div>
-    </section>
+    </div>
   <% end %>
 </section>
 
@@ -33,6 +33,15 @@
         <div class="bg-light p-3">
           <h3 class=" font-weight-bold">Descripción</h3>
           <p class="font-italic"><%= @cocktail.description %></p>
+        </div>
+        <div class=" bg-light p-3">
+          <ul class="list-unstyled">Reviews: 
+            <%= "No reviews yet" if @cocktail.reviews.empty? %>
+            <% @cocktail.reviews.each do |review| %>
+              <li><%= review.rating %> star(s) - <%= review.content %></li>
+            <% end %>
+          </ul>
+          <%= link_to '+ Danos tu opinion', new_cocktail_review_path(@cocktail), class: "btn btn-success mt-3"%>
         </div>
       </div>
       <div class="col-5">
