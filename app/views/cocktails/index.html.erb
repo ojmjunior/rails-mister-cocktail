@@ -1,11 +1,35 @@
 <nav class="navbar navbar-dark bg-dark">
-  <%= image_tag "main-avatar.jpg", class: "avatar-large" %>
-  <span class = "navbar-brand font-weight-bold">COCKTAIL KIT</span>
-  <div class="flats-options">
-    <%= link_to('Add a cocktail', new_cocktail_path, class: "btn btn-outline-info") %>
+  <%= image_tag "main-avatar.jpg", class: "avatar" %>
+  <span class = "navbar-brand font-weight-bold">TIENDA DEL CHAVO</span>
+  <div class="cocktails-options">
+    <%= link_to('Añadir un refresco', new_cocktail_path, class: "btn btn-outline-info") %>
   </div>
 </nav>
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Breakfast
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+url('<%= image_path "main-avatar.jpg" %>')">
+  <h1>los mejores refrescos de mexico</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="my-2 text-center">Todos nuestros refrescos</h1>
+    </div>
+  </div>
+  <div class="row">
+  <% @cocktails.each do |cocktail| %>
+    <div class="col-4 mb-2">
+      <div class="card">
+        <div class="card-body bg-light">
+          <h5 class="card-title"><%= cocktail.name %></h5>
+        </div>
+        <div class="card-footer bg-white">
+          <%= link_to('Detalle', cocktail_path(cocktail), class: "mr-3 text-decoration-none") %>
+          <%= link_to('Eliminar', cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?'}, class: "mr-3 text-decoration-none text-danger") %>
+        </div>
+      </div>  
+    </div>
+  <% end  %>
+  </div>
 </div>

@@ -1,11 +1,19 @@
+<nav class="navbar navbar-dark bg-dark">
+  <%= image_tag "main-avatar.jpg", class: "avatar" %>
+  <span class = "navbar-brand font-weight-bold">TIENDA DEL CHAVO</span>
+  <div class="flats-options">
+    <%= link_to('Añadir un refresco', new_cocktail_path, class: "btn btn-outline-info") %>
+  </div>
+</nav>
+
 <div class="container">
-  <h1>PAGE TO CREATE A COCKTAIL</h1>
+  <h1>Añadir un refresco</h1>
   
   <%= simple_form_for(@cocktail) do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, label: "Nombre del refresco" %>
     <div class="d-flex justify-content-between">
-      <%= f.submit 'Save', class: "btn btn-primary" %>
-      <%= link_to('Back to the list', cocktails_path, class: "btn btn-outline-secondary") %>
+      <%= f.submit 'Ahorrar', class: "btn btn-primary" %>
+      <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
     </div>
   <% end %>
 </div>

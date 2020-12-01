@@ -1,11 +1,11 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="left-navbar">
     <%= image_tag "main-avatar.jpg", class: "avatar-large" %>
-    <span class = "navbar-brand font-weight-bold">COCKTAIL KIT</span>
+    <span class = "navbar-brand font-weight-bold">TIENDA DEL CHAVO</span>
   </div>
   <div class="right-navbar">
-    <%= link_to('Add a cocktail', new_cocktail_path, class: "btn btn-outline-info") %>
-    <%= link_to('Back to the list', cocktails_path, class: "btn btn-outline-secondary") %>
+    <%= link_to('Añadir un refresco', new_cocktail_path, class: "btn btn-outline-info") %>
+    <%= link_to('Volver a la lista', cocktails_path, class: "btn btn-outline-secondary") %>
   </div>
 </nav>
 
@@ -17,11 +17,11 @@ url(https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/9/3/1532640931
 <div class="container mt-4 text-success bg-light">
   <div class="row">
     <div class="col-7">
-      <h3 class=" font-weight-bold">Description</h3>
-      <p class="font-italic">Symbol of Brazilianness, caipirinha is the drink made with lemon, sugar and cachaça.</p>
+      <h3 class=" font-weight-bold">Descripción</h3>
+      <p class="font-italic">Refresco de limón, que sabe a tamarindo pero es naranja</p>
     </div>
     <div class="col-5">
-      <h3 class=" font-weight-bold">Ingredients</h3>
+      <h3 class=" font-weight-bold">Ingredientes</h3>
       <ul class="list-unstyled">
       <% @cocktail.doses.each do |dose| %>
       <li><%= dose.description %> - <%= dose.ingredient.name %>
@@ -31,7 +31,7 @@ url(https://img.estadao.com.br/fotos/crop/1200x1200/resources/jpg/9/3/1532640931
                     data: { confirm: "Are you sure?" } %>
                     </li>
       <% end %>
-      <%= link_to('Add an ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-success mt-3") %>
+      <%= link_to('Agregar un ingrediente', new_cocktail_dose_path(@cocktail), class: "btn btn-success mt-3") %>
       </ul>
     </div>
   </div>
