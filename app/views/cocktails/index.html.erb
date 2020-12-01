@@ -1,12 +1,11 @@
-<div class="container">
-  <h1>INDEX - COCKTAILS</h1>
-  
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-      <li><%= link_to("#{cocktail.name}", cocktail_path(cocktail)) %></li>
-    <% end %>
-  </ul>
-  
-  <%= link_to('Add a Cocktail', new_cocktail_path, class: "btn btn-outline-primary") %>
-  
+<nav class="navbar navbar-dark bg-dark">
+  <%= image_tag "main-avatar.jpg", class: "avatar-large" %>
+  <span class = "navbar-brand font-weight-bold">COCKTAIL KIT</span>
+  <div class="flats-options">
+    <%= link_to('Add a cocktail', new_cocktail_path, class: "btn btn-outline-info") %>
+  </div>
+</nav>
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Breakfast
 </div>
