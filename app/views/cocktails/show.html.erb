@@ -9,33 +9,47 @@
   </div>
 </nav>
 
-<div class="card-category img-fluid" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
-  <h1><%=@cocktail.name%></h1>
-</div>
 
-<div class="container mt-4 text-success bg-light">
-  <div class="row">
-    <div class="col-7">
-      <h3 class=" font-weight-bold">Descripción</h3>
-      <p class="font-italic">Refresco de limón, que sabe a tamarindo pero es naranja</p>
-    </div>
-    <div class="col-5">
-      <h3 class=" font-weight-bold">Ingredientes</h3>
-      <ul class="list-unstyled">
-      <% @cocktail.doses.each do |dose| %>
-      <li><%= dose.description %> - <%= dose.ingredient.name %>
-      <%= link_to "Remove",
-                    doses_delete_path(dose.id),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-                    </li>
-      <% end %>
-      <%= link_to('Agregar un ingrediente', new_cocktail_dose_path(@cocktail), class: "btn btn-success mt-3") %>
-      </ul>
+<section>
+  <% if @cocktail.photo.attached?%>
+    <section class="background-image" style="height: 420px; background-image: url('<%= cl_image_path @cocktail.photo.key, height: 420, width: 400, crop: :fill %>')">
+      <div class="card-category img-fluid">
+        <h1 class="text-success"style="font-size: 80px;"><%=@cocktail.name.capitalize%></h1>
+      </div>
+    </section>
+  <% else %>
+    <section class="background-image" style="opacity: 40%; height: 420px; background-image: url('<%= image_path "main-avatar.jpg", height: 420, width: 400, crop: :fill %>')">
+      <div class="card-category img-fluid">
+        <h1 class="text-success"style="font-size: 80px;"><%=@cocktail.name.capitalize%></h1>
+      </div>
+    </section>
+  <% end %>
+</section>
+
+<section>
+  <div class="container mt-4 text-success bg-light">
+    <div class="row">
+      <div class="col-7">
+        <h3 class=" font-weight-bold">Descripción</h3>
+        <p class="font-italic">Refresco de limón, que sabe a tamarindo pero es naranja</p>
+      </div>
+      <div class="col-5">
+        <h3 class=" font-weight-bold">Ingredientes</h3>
+        <ul class="list-unstyled">
+        <% @cocktail.doses.each do |dose| %>
+        <li><%= dose.description %> - <%= dose.ingredient.name %>
+        <%= link_to "Remove",
+                      doses_delete_path(dose.id),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+                      </li>
+        <% end %>
+        <%= link_to('Agregar un ingrediente', new_cocktail_dose_path(@cocktail), class: "btn btn-success mt-3") %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 
   

@@ -7,8 +7,14 @@
 </nav>
 
 <div class="container">
-  <h1>Añadir un refresco</h1>
-  
+<div class="row mb-3" style="opacity: 40%; height: 420px; background-image: url('<%= image_path "main-avatar.jpg", height: 420, width: 400, crop: :fill %>')">
+  <div class="col-12">
+    <h1 class="d-flex justify-content-center" style="font-size: 80px;">Añadir un refresco</h1>
+  </div>
+</div>
+
+
+<div>  
   <%= simple_form_for(@cocktail) do |f| %>
     <%= f.input :name, label: "Nombre del refresco" %>
     <%= f.input :photo, as: :file %>

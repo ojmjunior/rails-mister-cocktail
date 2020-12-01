@@ -1,2 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.background-image {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  height: 420px;
+  object-fit: cover;
+  object-position: bottom-right;
+}
