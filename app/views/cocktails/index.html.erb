@@ -21,6 +21,13 @@ url('<%= image_path "main-avatar.jpg" %>')">
   <% @cocktails.each do |cocktail| %>
     <div class="col-4 mb-2">
       <div class="card">
+        <% if cocktail.photo.attached?%>
+          <div class="background-image" style="height: 240px; background-image: url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+          </div>
+        <% else %>
+          <div class="background-image" style="height: 240px; background-image: url('<%= image_path "main-avatar.jpg", height: 300, width: 400, crop: :fill %>')">
+          </div>
+        <% end %>
         <div class="card-body bg-light">
           <h5 class="card-title"><%= cocktail.name %></h5>
         </div>
